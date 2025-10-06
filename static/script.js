@@ -79,7 +79,9 @@ function openPrivateChat(userId) {
 }
 
 
+
 function showPublicMessage(message) {
+    message.localTimestamp = Date.now();
     publicMessages.push(message);
     if (activeTab === 'public') {
         renderPublicMessages();
@@ -93,9 +95,10 @@ function renderPublicMessages() {
         publicMessages.forEach(msg => {
             const messageElement = document.createElement('div');
             messageElement.className = 'message';
+            const ts = msg.localTimestamp ? msg.localTimestamp : msg.timestamp;
             messageElement.innerHTML = `
                 <strong>${msg.username}:</strong> ${msg.message} 
-                <small>(${new Date(msg.timestamp).toLocaleTimeString()})</small>
+                <small>(${new Date(ts).toLocaleTimeString()})</small>
             `;
             messages.appendChild(messageElement);
         });
@@ -114,6 +117,7 @@ function showPrivateMessage(message) {
     if (!otherUser || otherUser === currentUserId) {
         return;
     }
+    message.localTimestamp = Date.now();
     if (!privateMessages[otherUser]) {
         privateMessages[otherUser] = [];
     }
@@ -135,9 +139,10 @@ function renderPrivateMessages(userId) {
         privateMessages[userId].forEach(msg => {
             const messageElement = document.createElement('div');
             messageElement.className = 'message';
+            const ts = msg.localTimestamp ? msg.localTimestamp : msg.timestamp;
             messageElement.innerHTML = `
                 <strong>${msg.username}:</strong> ${msg.message} 
-                <small>(${new Date(msg.timestamp).toLocaleTimeString()})</small>
+                <small>(${new Date(ts).toLocaleTimeString()})</small>
             `;
             messagesContainer.appendChild(messageElement);
         });
