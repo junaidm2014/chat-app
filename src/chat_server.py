@@ -94,7 +94,8 @@ async def websocket_endpoint(websocket: WebSocket, user_id: str):
                 "message": chat_message.message,
                 "timestamp": chat_message.timestamp.isoformat(),
                 "room": chat_message.room,
-                "private": bool(recipient_id)
+                "private": bool(recipient_id),
+                "recipient": recipient_id if recipient_id else None
             }
             if recipient_id:
                 await manager.send_personal_message(msg_payload, recipient_id)

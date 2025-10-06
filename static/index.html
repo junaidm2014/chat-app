@@ -19,17 +19,25 @@
             <h3>Online Users</h3>
             <ul id="user-list"></ul>
         </div>
-        <div id="messages"></div>
+        
+        <!-- Chat Tabs -->
+        <div id="chat-tabs">
+            <button class="tab-button active" onclick="switchTab('public')">Public Chat</button>
+        </div>
+        
+        <!-- Tab Content -->
+        <div id="tab-content">
+            <div id="public" class="tab-pane active">
+                <div id="messages" class="message-area"></div>
+            </div>
+        </div>
+        
         <div id="input-container">
             <select id="recipientSelect">
                 <option value="">Public (Everyone)</option>
             </select>
             <input type="text" id="messageText" placeholder="Type a message..." />
             <button onclick="sendMessage()">Send</button>
-        </div>
-        <div id="private-messages-container" style="display:none;">
-            <h3>Private Messages</h3>
-            <div id="private-messages"></div>
         </div>
     </div>
     <script src="/static/script.js"></script>
