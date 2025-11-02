@@ -1,3 +1,19 @@
+body {
+    background-color: #1a1a2e;
+    color: #eee;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+#signin-container, #chat-container {
+    background-color: #16213e;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    max-width: 800px;
+    margin: 0 auto;
+}
 
 .tab-button {
     padding: 10px 20px;
@@ -7,7 +23,7 @@
     font-size: 14px;
     border-bottom: 2px solid transparent;
     position: relative;
-    color: #007bff;
+    color: #9d4edd;
     font-style: italic;
 }
 
@@ -98,15 +114,16 @@
     margin-bottom: 15px;
     padding: 10px;
     border-radius: 5px;
-    background-color: #f8f9fa;
+    background-color: #0f1419;
+    border: 1px solid #7209b7;
 }
 
 .message strong {
-    color: #007bff;
+    color: #9d4edd;
 }
 
 .message small {
-    color: #6c757d;
+    color: #a0a0a0;
     margin-left: 10px;
 }
 
@@ -124,17 +141,25 @@
     font-size: 14px;
 }
 
-#messageText {
+#messageText, #userIdInput, #recipientSelect {
     flex: 1;
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #7209b7;
     border-radius: 5px;
     font-size: 14px;
+    background-color: #0f1419;
+    color: #eee;
+}
+
+#messageText:focus, #userIdInput:focus, #recipientSelect:focus {
+    outline: none;
+    border-color: #9d4edd;
+    box-shadow: 0 0 5px rgba(157, 78, 221, 0.3);
 }
 
 button {
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #7209b7;
     color: white;
     border: none;
     border-radius: 5px;
@@ -143,7 +168,7 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #9d4edd;
 }
 
 #username:focus, #messageText:focus {

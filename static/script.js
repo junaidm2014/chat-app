@@ -20,7 +20,11 @@ function signIn() {
     document.getElementById('signin-container').style.display = 'none';
     document.getElementById('chat-container').style.display = '';
     document.getElementById('currentUser').textContent = `Signed in as: ${userId}`;
-    ws = new WebSocket(`ws://localhost:8000/ws/${userId}`);
+    
+    // Get the current host and protocol, replace http with ws
+    const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+    const host = window.location.host; // includes port if present
+    ws = new WebSocket(`${protocol}//${host}/ws/${userId}`);
     setupWebSocket();
 }
 
